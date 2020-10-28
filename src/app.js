@@ -40,23 +40,6 @@ app.get('/about', (req, res) => {
 })
 
 
-app.get('/help', (req, res) => {
-    res.render('help', {
-        title: 'Help page',
-        message: 'This is message text',
-        name: 'Aryak singh chauhan'
-    })
-})
-
-app.get('/help/*', (req, res) => {
-    res.render('404', {
-        title: '404 page',
-        message: '/page/* not found',
-        name: 'Aryak singh chauhan'
-    })
-})
-
-
 app.get('/weather', (req, res) => {
     if(!req.query.address){
         return res.send({
@@ -100,18 +83,6 @@ app.get('/weather', (req, res) => {
     })    
 })
 
-app.get('/product', (req, res) => {
-    
-    if(!req.query.search){
-        return res.send({
-            error: 'You must provide a search term'
-        })
-    }
-
-    res.send({
-        product: []
-    })
-})
 
 app.get('*', (req, res) => {
     res.render('404', {
